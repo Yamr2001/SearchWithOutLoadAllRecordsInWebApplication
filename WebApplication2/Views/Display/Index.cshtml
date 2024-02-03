@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<input type="text" id="searchInput" placeholder="Search for items" />
+<select id="yourDropdown"></select>
+
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('input', function () {
+            var searchTerm = $(this).val();
+
+            $.ajax({
+                url: '/Display/GetItems',
+                type: 'POST',
+                dataType: 'json',
+                data: { searchTerm: searchTerm },
+                success: function (data) {
+                    $('#yourDropdown').empty();
+
+                    $.each(data, function (index, item) {
+                        $('#yourDropdown').append($('<option>', {
+                            value: item.id,
+                            text: item.text
+                        }));
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+

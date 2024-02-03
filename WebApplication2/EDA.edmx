@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EDA_medical_devicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MDName">
+          <Key>
+            <PropertyRef Name="MDNameIDPK" />
+          </Key>
+          <Property Name="MDNameIDPK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MDName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="MedicalDeviceCategoryIDFK" Type="int" />
+          <Property Name="added_on" Type="datetime" />
+          <Property Name="added_by" Type="decimal" Precision="28" Scale="0" />
+          <Property Name="modified_on" Type="datetime" />
+          <Property Name="modified_by" Type="decimal" Precision="28" Scale="0" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="MDName_Ar" Type="nvarchar" MaxLength="400" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="EDA_medical_devicesModelStoreContainer">
+          <EntitySet Name="MDName" EntityType="Self.MDName" Schema="md" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EDA_medical_devicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MDName">
+          <Key>
+            <PropertyRef Name="MDNameIDPK" />
+          </Key>
+          <Property Name="MDNameIDPK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MDName1" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MedicalDeviceCategoryIDFK" Type="Int32" />
+          <Property Name="added_on" Type="DateTime" Precision="3" />
+          <Property Name="added_by" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="modified_on" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="MDName_Ar" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="EDA_medical_devicesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MDNames" EntityType="Self.MDName" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EDA_medical_devicesModelStoreContainer" CdmEntityContainer="EDA_medical_devicesEntities">
+          <EntitySetMapping Name="MDNames">
+            <EntityTypeMapping TypeName="EDA_medical_devicesModel.MDName">
+              <MappingFragment StoreEntitySet="MDName">
+                <ScalarProperty Name="MDNameIDPK" ColumnName="MDNameIDPK" />
+                <ScalarProperty Name="MDName1" ColumnName="MDName" />
+                <ScalarProperty Name="MedicalDeviceCategoryIDFK" ColumnName="MedicalDeviceCategoryIDFK" />
+                <ScalarProperty Name="added_on" ColumnName="added_on" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="MDName_Ar" ColumnName="MDName_Ar" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
